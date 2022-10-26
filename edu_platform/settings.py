@@ -25,7 +25,7 @@ SECRET_KEY = 'n$dx2oi_5gdj1n0!7ppak=r$bo09*#ffpt)m0%)87wy^us^0l0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['top-dental-academy.herokuapp.com', 'https://top-dental-academy.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['top-dental-academy.herokuapp.com', 'https://top-dental-academy.herokuapp.com/', '127.0.0.1', 'top-dental-academy-v2.herokuapp.com']
 
 # Application definition
 
