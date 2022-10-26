@@ -1,0 +1,498 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>Top Dental Academy | Edit-Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Top Dental Academy">
+
+    <!-- Favicon -->
+    <link href="http://demo.foxthemes.net/courseplusv3.3/assets/images/favicon.png" rel="icon" type="image/png">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit-icons.min.js"></script>
+
+    <!-- CSS
+     ================================================== -->
+    <link rel="stylesheet" href="{%static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/css/night-mode.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/css/framework.css' %}">
+    <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css' %}">
+    <!-- icons
+    ================================================== -->
+
+    <link rel="stylesheet" href="{%static 'assets/css/icons.css' %}">
+
+    <!-- preloader
+    =================================================== -->
+    <link rel="stylesheet" href="{%static 'assets/css/preloader.css' %}">
+
+
+</head>
+
+<body class="no-scroll-y">
+
+    <!-- Preloader -->
+    <section class="col-12">
+        <div id="preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="T" class="letters-loading">
+                            T
+                        </span>
+
+                        <span data-text-preloader="o" class="letters-loading">
+                            o
+                        </span>
+
+                        <span data-text-preloader="p" class="letters-loading">
+                            p
+                        </span>
+                        <span data-text-preloader="-" class="letters-loading">
+                            -
+                        </span>
+
+
+                        <span data-text-preloader="D" class="letters-loading">
+                            D
+                        </span>
+
+                        <span data-text-preloader="e" class="letters-loading">
+                            e
+                        </span>
+
+                        <span data-text-preloader="n" class="letters-loading">
+                            n
+                        </span>
+                        <span data-text-preloader="t" class="letters-loading">
+                            t
+                        </span>
+                        <span data-text-preloader="a" class="letters-loading">
+                            a
+                        </span><span data-text-preloader="l" class="letters-loading">
+                            l
+                        </span>
+                        <span data-text-preloader="-" class="letters-loading">
+                            -
+                        </span>
+
+                        </span><span data-text-preloader="A" class="letters-loading">
+                            A
+                        </span></span><span data-text-preloader="c" class="letters-loading">
+                            c
+                        </span></span><span data-text-preloader="a" class="letters-loading">
+                            a
+                        </span></span><span data-text-preloader="d" class="letters-loading">
+                            d
+                        </span></span><span data-text-preloader="e" class="letters-loading">
+                            e
+                        </span></span><span data-text-preloader="m" class="letters-loading">
+                            m
+                        </span></span><span data-text-preloader="y" class="letters-loading">
+                            y
+
+                    </div>
+                </div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="wrapper">
+
+
+        <!-- overlay seach on mobile-->
+        <div class="nav-overlay uk-navbar-left uk-position-relative uk-flex-1 bg-grey uk-light p-2" hidden
+            style="z-index: 10000;">
+            <div class="uk-navbar-item uk-width-expand" style="min-height: 60px;">
+                <form class="uk-search uk-search-navbar uk-width-1-1">
+                    <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                </form>
+            </div>
+            <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+                href="#"></a>
+        </div>
+
+        <!-- search overlay-->
+        <div id="searchbox">
+
+            <div class="search-overlay"></div>
+
+            <div class="search-input-wrapper">
+                <div class="search-input-container">
+                    <div class="search-input-control">
+                        <span class="icon-feather-x btn-close uk-animation-scale-up"
+                            uk-toggle="target: #searchbox; cls: is-active"></span>
+                        <div class=" uk-animation-slide-bottom">
+                            <input type="text" name="search" autofocus required>
+                            <p class="search-help">Type the name of the Course and book you are looking for</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- menu -->
+
+
+        <!-- content -->
+        <div class="page-content">
+
+            <!-- Header Container
+   ================================================== -->
+            <header class="header" uk-sticky="top:20 ; cls-active:header-sticky">
+
+                <div class="container">
+                    <nav uk-navbar>
+
+                        <!-- left Side Content -->
+                        <div class="uk-navbar-left">
+
+                            <span class="btn-mobile" uk-toggle="target: #wrapper ; cls: mobile-active"></span>
+
+
+                            <!-- logo -->
+                            <a href="dashboard.html" class="logo">
+                                <img src="../assets/images/logo-dark.svg" alt="">
+                                <span> Courseplus</span>
+                            </a>
+
+                            <!-- breadcrumbs -->
+                            <nav id="breadcrumbs">
+                                <ul>
+                                    <li><a href="/"> Dashboard </a></li>
+                                    <li><a>My Profile</a></li>
+                                    <li>{{user.full_name}}</li>
+                                </ul>
+                            </nav>
+
+
+                        </div>
+
+
+                        <!--  Right Side Content   -->
+
+                        <div class="uk-navbar-right">
+
+                            <div class="header-widget">
+                                <!-- User icons close mobile-->
+                                <span class="icon-feather-x icon-small uk-hidden@s"
+                                    uk-toggle="target: .header-widget ; cls: is-active"> </span>
+
+
+                                <a href="/" class="header-widget-icon"
+                                    uk-tooltip="title: Home ; pos: bottom ;offset:21">
+                                    <i class="uil-home-alt"></i>
+                                </a>
+
+
+
+                                <!-- notificiation dropdown -->
+
+
+
+                                <!-- Message  -->
+
+
+
+
+                                <!-- profile-icon-->
+
+
+                            </div>
+
+
+
+                        </div>
+                        <!-- End Right Side Content / End -->
+
+
+                    </nav>
+
+                </div>
+                <!-- container  / End -->
+
+            </header>
+
+
+            <div class="page-content-inner">
+
+                <h4>Account Setting</h4>
+
+                <nav class="responsive-tab mb-4">
+                    <li class="uk-active"><a href="#">Edit Profile</a></li>
+                    <li><a href="/View/my-profile">My Profile</a></li>
+                </nav>
+
+                <div uk-grid>
+
+                    <div class="uk-width-2-5@m ">
+
+                        <form action="/Accounts/Edit-Run/edit-profile-photo" method="POST"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="uk-card-default rounded text-center p-4">
+                                <div class="uk-position-relative my-4">
+
+                                    <div class="user-profile-photo  m-auto">
+                                        {% if info.profile_pic %}
+                                        <img src="{{info.profile_pic}}" alt="">
+                                        {% else %}
+                                        <img src="http://demo.foxthemes.net/courseplusv3.3/assets/images/favicon.png"
+                                            alt="">
+                                        {% endif %}
+                                    </div>
+
+
+                                    <div class="uk-position-center">
+                                        <div uk-form-custom>
+                                            <input name="profile_pic" type="file">
+                                            <span class="uk-link icon-feather-camera icon-medium text-white"> </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-default m-auto mb-3">Save photo</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="uk-width-expand@m">
+
+                        <div class="uk-card-default rounded">
+                            <div class="p-3">
+                                <h5 class="mb-0"> Contact info </h5>
+                            </div>
+                            <hr class="m-0">
+                            <form action="/Accounts/Edit-Run/edit-contact" method="POST" id="contact_info_form"
+                                class="uk-child-width-1-2@s uk-grid-small p-4" uk-grid>
+                                {% csrf_token %}
+                                <div>
+                                    <h5 class="uk-text-bold mb-2"> First Name </h5>
+                                    <input name="first_name" type="text" class="uk-input"
+                                        placeholder="{{info.first_name}}">
+                                </div>
+                                <div>
+                                    <h5 class="uk-text-bold mb-2"> Last Name </h5>
+                                    <input name="last_name" type="text" class="uk-input"
+                                        placeholder="{{info.last_name}}">
+                                </div>
+                                <div>
+                                    <h5 class="uk-text-bold mb-2"> Your email address </h5>
+                                    <input type="text" class="uk-input" placeholder="{{user.email}}" disabled>
+                                </div>
+                                <div>
+                                    <h5 class="uk-text-bold mb-2"> Phone </h5>
+                                    <input name="mobile" type="text" class="uk-input" placeholder="{{info.mobile}}">
+                                </div>
+                            </form>
+
+                            <div class="uk-flex uk-flex-right p-4">
+                                <button onclick="contact_info()" type="submit" class="btn btn-default grey">Save Changes
+                                </button>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- footer
+           ================================================== -->
+                <div class="footer">
+                    <div class="uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand@s uk-first-column">
+                            <p>© 2020 <strong>Top Dental Academy</strong>. All Rights Reserved. </p>
+                        </div>
+                        <div class="uk-width-auto@s">
+                            <nav class="footer-nav-icon">
+                                <ul>
+                                    <li><a href="#"><i class="icon-brand-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-youtube"></i></a></li>
+                                    <li><a href="#"><i class="icon-brand-twitter"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <style>
+        .flex-wrapper {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .single-chart {
+            width: 33%;
+            justify-content: space-around;
+        }
+
+        .circular-chart {
+            display: block;
+            margin: 10px auto;
+            max-width: 80%;
+            max-height: 250px;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 3.8;
+        }
+
+        .circle {
+            fill: none;
+            stroke-width: 2.8;
+            stroke-linecap: round;
+            animation: progress 1s ease-out forwards;
+        }
+
+        @keyframes progress {
+            0% {
+                stroke-dasharray: 0 100;
+            }
+        }
+
+        .circular-chart.orange .circle {
+            stroke: #ff9f00;
+        }
+
+        .circular-chart.green .circle {
+            stroke: #4CC790;
+        }
+
+        .circular-chart.blue .circle {
+            stroke: #3c9ee5;
+        }
+
+        .percentage {
+            fill: #666;
+            font-family: sans-serif;
+            font-size: 0.5em;
+            text-anchor: middle;
+        }
+    </style>
+    <style>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href=" https://wa.me/+201551180618" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <!-- For Night mode -->
+    <script>
+        (function (window, document, undefined) {
+            'use strict';
+            if (!('localStorage' in window)) return;
+            var nightMode = localStorage.getItem('gmtNightMode');
+            if (nightMode) {
+                document.documentElement.className += ' night-mode';
+            }
+        })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('night-mode');
+                if (document.documentElement.classList.contains('night-mode')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+
+
+
+
+
+
+
+    </script>
+
+
+    <!-- javaScripts
+================================================== -->
+    <script src="{%static 'assets/js/framework.js' %}"></script>
+    <script src="{%static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{%static 'assets/js/simplebar.js' %}"></script>
+    <script src="{%static 'assets/js/alpha.js' %}"></script>
+    <script src="{%static 'assets/js/bootstrap-select.min.js' %}"></script>
+    <script src="{%static 'assets/js/preloader.js' %}"></script>
+
+
+    <script>
+        function contact_info() {
+            $("#contact_info_form").submit();
+        }
+
+
+
+
+    </script>
+    <script>
+        function address_form() {
+            $("#address_info").submit();
+        }
+
+
+    </script>
+
+</body>
+
+</html>

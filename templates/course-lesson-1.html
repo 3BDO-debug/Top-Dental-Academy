@@ -1,0 +1,364 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>Top Dental Academy | {{content.course_name}} Course</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Top Dental Academy">
+
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/7e3c29d4c7.js" crossorigin="anonymous"></script>
+    <!-- End FOnt awesome -->
+
+    <!-- Favicon -->
+    <link href="{%static 'assets/images/favicon.png' %}" rel="icon" type="image/png">
+
+     <!-- UIkit CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/css/uikit.min.css" />
+
+     <!-- UIkit JS -->
+     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.10/dist/js/uikit-icons.min.js"></script>
+ 
+     <!-- CSS
+     ================================================== -->
+     <link rel="stylesheet" href="{%static 'assets/css/style.css' %}">
+     <link rel="stylesheet" href="{%static 'assets/css/night-mode.css' %}">
+     <link rel="stylesheet" href="{%static 'assets/css/framework.css' %}">
+     <link rel="stylesheet" href="{%static 'assets/css/bootstrap.css' %}">
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="{%static 'assets/css/icons.css' %}">
+
+    <!-- preloader
+   =================================================== -->
+    <link rel="stylesheet" href="{%static 'assets/css/preloader.css' %}">
+
+
+</head>
+
+
+<body oncontextmenu="return false;"
+      class="course-watch-page no-scroll-y">
+<!-- Preloader -->
+<section class="col-12">
+    <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+						<span data-text-preloader="T" class="letters-loading">
+							T
+						</span>
+
+                    <span data-text-preloader="o" class="letters-loading">
+							o
+						</span>
+
+                    <span data-text-preloader="p" class="letters-loading">
+							p
+						</span>
+                    <span data-text-preloader="-" class="letters-loading">
+							-
+						</span>
+
+
+                    <span data-text-preloader="D" class="letters-loading">
+							D
+						</span>
+
+                    <span data-text-preloader="e" class="letters-loading">
+							e
+						</span>
+
+                    <span data-text-preloader="n" class="letters-loading">
+							n
+						</span>
+                    <span data-text-preloader="t" class="letters-loading">
+							t
+						</span>
+                    <span data-text-preloader="a" class="letters-loading">
+							a
+						</span><span data-text-preloader="l" class="letters-loading">
+							l
+						</span>
+                    <span data-text-preloader="-" class="letters-loading">
+							-
+						</span>
+
+                    </span><span data-text-preloader="A" class="letters-loading">
+							A
+						</span></span><span data-text-preloader="c" class="letters-loading">
+							c
+                        </span></span><span data-text-preloader="a" class="letters-loading">
+                            a
+						</span></span><span data-text-preloader="d" class="letters-loading">
+							d
+						</span></span><span data-text-preloader="e" class="letters-loading">
+							e
+						</span></span><span data-text-preloader="m" class="letters-loading">
+							m
+						</span></span><span data-text-preloader="y" class="letters-loading">
+							y
+
+                </div>
+            </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <div class="course-layouts">
+
+        <div class="course-content bg-dark">
+
+            <div class="course-header">
+
+                <a href="#" class="btn-back" uk-toggle="target: .course-layouts; cls: course-sidebar-collapse">
+                    <i class="icon-feather-chevron-left"></i>
+                </a>
+
+                <h4 class="text-white"> {{content.course_name}} </h4>
+
+                <div>
+                    <a href="#">
+                        <i class="icon-feather-help-circle btns"></i> </a>
+                    <div uk-drop="pos: bottom-right;mode : click">
+                        <div class="uk-card-default p-4">
+                            <h4> {{content.course_name}}</h4>
+                            <p class="mt-2 mb-0">{{content.short_desc}}</p>
+                        </div>
+                    </div>
+
+                    <a hred="#">
+                        <i class="icon-feather-more-vertical btns"></i>
+                    </a>
+                    <div class="dropdown-option-nav " uk-dropdown="pos: bottom-right ;mode : click">
+                        <ul>
+
+                            <li><a href="#">
+                                <i class="icon-feather-bookmark"></i>
+                                Add To Bookmarks</a></li>
+                            <li><a href="#">
+                                <i class="icon-feather-share-2"></i>
+                                Share With Friend </a></li>
+
+                            <li>
+                                <a href="#" id="night-mode" class="btn-night-mode">
+                                    <i class="icon-line-awesome-lightbulb-o"></i> Night mode
+                                    <label class="btn-night-mode-switch">
+                                        <div class="uk-switch-button"></div>
+                                    </label>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="course-content-inner">
+
+                <ul id="video-slider" class="uk-switcher">
+                    
+                    {% if content.is_linked == True %}
+                    {% for video in content.youtube_content.all %}
+                    <li>
+                        <div class="video-responsive">
+
+                            <video width="320" height="240" controls>
+                                <source src="{{video.video_youtube_link}}" type="video/mp4">
+                                <source src="movie.ogg" type="video/ogg">
+                              Your browser does not support the video tag.
+                              </video> 
+                            </div>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    {% for video in content.content.all %}
+                    <li>
+                        <div class="video-responsive">
+
+                            <video width="320" height="240" controls controlsList="nodownload">
+                                <source src="https://top-dental-academy.s3.eu-central-1.amazonaws.com/media/lectures/{{video.video}}"
+                                        type="video/mp4">
+                                <source src="movie.ogg" type="video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- course sidebar -->
+
+        <div class="course-sidebar">
+            <div class="course-sidebar-title">
+                <h3> Table of Contents </h3>
+            </div>
+            <div class="course-sidebar-container" data-simplebar>
+
+                <ul class="course-video-list-section" uk-accordion>
+
+
+                    <li class="uk-open">
+                        <a class="uk-accordion-title" href="#"> {{content.course_name}} </a>
+                        <div class="uk-accordion-content">
+                            <!-- course-video-list -->
+                            <ul class="course-video-list highlight-watched"
+                                uk-switcher=" connect: #video-slider  ; animation: uk-animation-slide-right-small, uk-animation-slide-left-medium">
+                                {% if content.is_linked == True %}
+                                {% for video_title in content.youtube_content.all %}
+                                <li class="watched"><a href="#"> {{video_title.topic_name}} <span> 23 min </span> </a>
+                                </li>
+                                {%  endfor %}
+                                {% else %}
+                                {% for video_title in content.content.all %}
+                                <li class="watched"><a href="#"> {{video_title.topic_name}} <span> 23 min </span> </a>
+                                </li>
+                                {% endfor %}
+                                {% endif %}
+
+                            </ul>
+
+                        </div>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+            (function (window, document, undefined) {
+                'use strict';
+                if (!('localStorage' in window)) return;
+                var nightMode = localStorage.getItem('gmtNightMode');
+                if (nightMode) {
+                    document.documentElement.className += ' night-mode';
+                }
+            })(window, document);
+
+
+            (function (window, document, undefined) {
+
+                'use strict';
+
+                // Feature test
+                if (!('localStorage' in window)) return;
+
+                // Get our newly insert toggle
+                var nightMode = document.querySelector('#night-mode');
+                if (!nightMode) return;
+
+                // When clicked, toggle night mode on or off
+                nightMode.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    document.documentElement.classList.toggle('night-mode');
+                    if (document.documentElement.classList.contains('night-mode')) {
+                        localStorage.setItem('gmtNightMode', true);
+                        return;
+                    }
+                    localStorage.removeItem('gmtNightMode');
+                }, false);
+
+            })(window, document);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<script src="{%static 'code.jquery.com/jquery-2.2.4.min.js' %}"></script>
+<script>
+            function make_button_active(tab) {
+                //Get item siblings
+                var siblings = tab.siblings();
+
+                /* Remove active class on all buttons
+                siblings.each(function(){
+                    $(this).removeClass('active');
+                }) */
+
+                //Add the clicked button class
+                tab.addClass('watched');
+            }
+
+            //Attach events to highlight-watched
+            $(document).ready(function () {
+
+                if (localStorage) {
+                    var ind = localStorage['tab']
+                    make_button_active($('.highlight-watched li').eq(ind));
+                }
+
+                $(".highlight-watched li").click(function () {
+                    if (localStorage) {
+                        localStorage['tab'] = $(this).index();
+                    }
+                    make_button_active($(this));
+                });
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<!-- javaScripts
+================================================== -->
+<script src="{%static 'assets/js/framework.js' %}"></script>
+<script src="{%static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{%static 'assets/js/simplebar.js' %}"></script>
+<script src="{%static 'assets/js/main.js' %}"></script>
+<script src="{%static 'assets/js/bootstrap-select.min.js' %}"></script>
+<script src="{%static 'assets/js/preloader.js' %}"></script>
+
+
+</body>
+
+
+</html>
