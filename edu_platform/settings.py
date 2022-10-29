@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -84,14 +86,14 @@ AUTH_USER_MODEL = 'Accounts.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1atfuj3o5225h',
-        'HOST': 'ec2-44-206-179-216.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'qbfstghrqevxzn',
-        'PASSWORD': 'ec5f90d943a9629ab6ba94564274ac1502587bb5d7391ce0ebebd928e8b54aa8'
+       
     }
 }
+
+DATABASES['default'] = dj_database_url.config(default='postgres://qbfstghrqevxzn:ec5f90d943a9629ab6ba94564274ac1502587bb5d7391ce0ebebd928e8b54aa8@ec2-44-206-179-216.compute-1.amazonaws.com:5432/d1atfuj3o5225h')
+
+
+# postgres://qbfstghrqevxzn:ec5f90d943a9629ab6ba94564274ac1502587bb5d7391ce0ebebd928e8b54aa8@ec2-44-206-179-216.compute-1.amazonaws.com:5432/d1atfuj3o5225h
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
