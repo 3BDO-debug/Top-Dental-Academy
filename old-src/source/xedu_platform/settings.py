@@ -81,14 +81,15 @@ AUTH_USER_MODEL = 'Accounts.User'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dc5prd0il1h8pl',
-        'HOST': 'ec2-52-87-22-151.compute-1.amazonaws.com',
+        'NAME': 'd1atfuj3o5225h',
+        'HOST': 'ec2-44-206-179-216.compute-1.amazonaws.com',
         'PORT': 5432,
-        'USER': 'ncjdhmaqslqjoi',
-        'PASSWORD': '48d2143ae7ec052936953103e56f86aadda10f4978f852b4a11351b76ab31e97'
+        'USER': 'qbfstghrqevxzn',
+        'PASSWORD': 'ec5f90d943a9629ab6ba94564274ac1502587bb5d7391ce0ebebd928e8b54aa8'
     }
 }
 
@@ -135,6 +136,25 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+S3_MINIMUM_PART_SIZE = 5242880
 
+AWS_ACCESS_KEY_ID = 'AKIA2M4BGTQT2S37ZQ75'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'top-dental-academy'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_ENDPOINT_URL = 'https://s3.amazonaws.com'
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+
+S3DIRECT_DESTINATIONS = {
+    'primary_destination': {
+        'key': 'uploads/',
+        'allowed': ['image/jpg', 'image/jpeg', 'image/png', 'video/mp4'],
+    },
+}
+
+DEFAULT_FILE_STORAGE = 'edu_platform.storage_backends.MediaStorage'
 
 
