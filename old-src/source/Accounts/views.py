@@ -4,7 +4,7 @@ from .models import User, UserInfo
 from django.contrib import messages
 
 
-# Create your views here.
+# Create your views here...
 def register_login_logout(request, condition):
     if condition == "register":
         full_name = request.POST.get("full_name")
@@ -39,19 +39,17 @@ def register_login_logout(request, condition):
 
         check = authenticate(request, email=email, password=password)
         if check:
-            get_user = User.objects.get(email=email)
+            login(request, check)
+            """get_user = User.objects.get(email=email)
             if get_user.key > key.split("/")[1]:
                 if get_user.key.split("/")[1] == key.split("/")[1]:
                     login(request, check)
                     return redirect("/")
             elif get_user.key == key.split("/")[1]:
                 login(request, check)
-                return redirect("/")
-
-            else:
-                messages.error(request,
-                               "We Are Sorry, you cant access your account from another device than the one you registered from")
-                return redirect('/View/login')
+                return redirect("/")"""
+                
+            
         else:
             messages.error(request, "Wrong Username or Password")
             return redirect('/View/login')
