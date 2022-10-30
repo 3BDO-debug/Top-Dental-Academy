@@ -48,7 +48,7 @@ def register_login_logout(request, condition):
             elif get_user.key == key.split("/")[1]:
                 login(request, check)
                 return redirect("/")"""
-                
+            return redirect("/")
             
         else:
             messages.error(request, "Wrong Username or Password")
