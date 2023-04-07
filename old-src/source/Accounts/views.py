@@ -16,7 +16,7 @@ def register_login_logout(request, condition):
         if password != confirm_password:
             messages.error(request, "Password Doesn't Match")
             return redirect("/View/register")
-        elif password == confirm_password:
+        else:
             if User.objects.filter(email=email).exists():
                 body = "Hey" + " " + full_name + "Account with this email already exists, you may want to login instead? "
                 messages.error(request, body)
@@ -37,8 +37,7 @@ def register_login_logout(request, condition):
         password = request.POST.get("password")
         key = request.POST.get("key")
 
-        check = authenticate(request, email=email, password=password)
-        if check:
+        if check := authenticate(request, email=email, password=password):
             get_user = User.objects.get(email=email)
             if get_user.key > key.split("/")[1]:
                 if get_user.key.split("/")[1] == key.split("/")[1]:
