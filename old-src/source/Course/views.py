@@ -31,15 +31,11 @@ def course_intro_view(request, id):
 
 def course_content(request, id):
     if request.user.is_authenticated:
-            for purchased_course in request.user.user_purchased_courses.all():
-                if purchased_course.id == id:
+        for purchased_course in request.user.user_purchased_courses.all():
+            if purchased_course.id == id:
 
-                    content = models.Course.objects.get(id=id)
-                    return render(request, 'course-lesson-1.html', { 'content': content})
-            return redirect('/')
-                    
-        
-    else:
-        return redirect('/')
+                content = models.Course.objects.get(id=id)
+                return render(request, 'course-lesson-1.html', { 'content': content})
+    return redirect('/')
 
 

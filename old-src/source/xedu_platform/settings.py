@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+
 from pathlib import Path
 import os
 
@@ -141,7 +142,7 @@ S3_MINIMUM_PART_SIZE = 5242880
 AWS_ACCESS_KEY_ID = 'AKIA2M4BGTQT2S37ZQ75'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'top-dental-academy'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_S3_ENDPOINT_URL = 'https://s3.amazonaws.com'
 
 AWS_S3_OBJECT_PARAMETERS = {
